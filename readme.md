@@ -11,3 +11,6 @@ Chune is written in Python3 using Flask and Spotipy.
 Chune is not designed to be secure, use at your own risk. As far as I can tell, the only danger is 
 attackers queueing songs on your spotify - not the end of the world. I am however not a security
 expert and therefore give no guarantees of safety or privacy.
+
+## Development State
+This project is currently a quick and dirty solution to address my needs, if there is any interest here I will rewrite it in a more proper fashion (actually use Flask properly!).
