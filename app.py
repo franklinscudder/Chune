@@ -3,8 +3,11 @@ import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
+def bp():
+    return os.path.abspath(os.path.dirname(__file__))
+
 def getCreds():
-    with open("creds.txt", "r") as f:
+    with open(f"{bp()}/creds.txt", "r") as f:
         id, secret = [i.lstrip().rstrip().split()[1] for i in f.readlines()]
     return id, secret
 
@@ -13,9 +16,6 @@ clientID, clientSecret = getCreds()
 scope = 'user-library-read, user-read-private, user-read-playback-state, user-modify-playback-state'
 
 app = Flask(__name__)
-
-def bp():
-    return os.path.abspath(os.path.dirname(__file__))
 
 @app.route("/index")
 @app.route("/")
