@@ -13,4 +13,9 @@ attackers queueing songs on your spotify - not the end of the world. I am howeve
 expert and therefore give no guarantees of safety or privacy.
 
 ## Development State
-This project is currently a quick and dirty solution to address my needs, if there is any interest here I will rewrite it in a more proper fashion (actually use Flask properly!).
+This project is currently a quick and dirty solution to address my needs, if there is any interest here I will rewrite it in a more proper fashion (actually use Flask properly, work out how to make the app stateful without using random files, add a credentials/login UI.).
+
+## Other Files
+To use your spotify account, you need to make an account on the spotify for developers page and add an app to generate a user ID and user secret. These should be placed in a file called 'creds.txt' and placed next to 'app.py'.
+
+
