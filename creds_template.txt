@@ -1,0 +1,4 @@
+<User ID goes here>
+<User secret goes here>
+
+# Enter the strings above and then save this file as creds.txt
