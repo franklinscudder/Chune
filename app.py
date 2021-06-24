@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, send_from_directory
 import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -16,6 +16,12 @@ clientID, clientSecret = getCreds()
 scope = 'user-library-read, user-read-private, user-read-playback-state, user-modify-playback-state'
 
 app = Flask(__name__)
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(bp(), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
 
 @app.route("/index")
 @app.route("/")
