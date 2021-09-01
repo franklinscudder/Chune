@@ -2,7 +2,8 @@
 
 Chune is a webapp that allows anyone to add songs to your spotify queue. This enables you to plug 
 in to your speakers when hosting a party and let people request songs without having to get your
-attention or physically access your spotify device.
+attention or physically access your spotify device. They also don't need a spotify account and there
+is no limit to the number of users, unlike with spotify's native 'Group Sessions'.
 
 Chune is written in Python3 using Flask and Spotipy.
 
