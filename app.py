@@ -41,15 +41,23 @@ def select():
         command = query[1:].strip()
         if command == "purge-used":
             os.system(f"echo '' > {bp()}/used.dat")
+
         elif command == "lock":
             with open(f"{bp()}/lock.dat", "w") as lockF:
                 lockF.write("1")
+
         elif command == "unlock":
             with open(f"{bp()}/lock.dat", "w") as lockF:
                 lockF.write("0")
+
         elif command == "used":
             with open(f"{bp()}/used.dat", "r") as usedF:
-                return usedF.read()
+                message = usedF.read()
+            with open(f"{bp()}/add.html", "r") as f:
+                html = f.read()
+                html = html.replace("@@message@@", message)
+
+            return html
 
     sp = spotipy.Spotify(  \
         auth_manager=SpotifyOAuth(clientID, clientSecret, "http://www.google.co.uk", \
@@ -79,6 +87,9 @@ def add():
         scope=scope, cache_path=f"{bp()}/.cache", open_browser=False))
 
     devices = sp.devices()
+    track = sp.track(trackID)
+    trackName = track["name"]
+    artist = ", ".join([a["name"] for a in track["artists"]])
 
     usedF = open(f"{bp()}/used.dat", "r")
     used = usedF.readlines()
@@ -94,7 +105,7 @@ def add():
             try: ### likewise
                 sp.add_to_queue(trackID, device_id=deviceID)
                 usedF = open(f"{bp()}/used.dat", "a")
-                usedF.write(trackID + "\n\r")
+                usedF.write(trackID + "\n\r" + " --> " + trackName +  " - " + artist + "<br>\n\r")
                 usedF.close()
             except:  # debugging
                 message = "Adding unsuccessful: Spotify Error."
