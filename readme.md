@@ -7,6 +7,9 @@ is no limit to the number of users, unlike with spotify's native 'Group Sessions
 
 Chune is written in Python3 using Flask and Spotipy.
 
+## Docker
+See the branch `docker` for a containerised version of chune!
+
 ## WARNING
 
 Chune is not designed to be secure, use at your own risk. As far as I can tell, the only danger is 
